@@ -1,79 +1,90 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TagsContainer = styled.section`
-  padding: 2rem;
-  background-color: #f5f5f5;
-  text-align: center;
-`;
-
-const Title = styled.h2`
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-`;
-
-const TagsWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-  max-width: 1200px;
+const Section = styled.section`
+  padding: 2rem 1rem;
+  max-width: 1400px;
   margin: 0 auto;
 `;
 
-const Tag = styled.a`
-  background-color: ${props => props.highlighted ? '#8a2be2' : '#fff'};
-  color: ${props => props.highlighted ? '#fff' : '#333'};
+const Title = styled.h2`
+  font-size: 2rem;
+  color: #7D26C9;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+`;
+
+const TagsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px dashed #7D26C9;
+  border-radius: 8px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const Tag = styled.button`
+  background-color: #F0E6FA;
+  color: #7D26C9;
+  border: none;
   padding: 0.5rem 1rem;
-  border-radius: 20px;
-  text-decoration: none;
+  border-radius: 50px;
   font-size: 0.9rem;
-  border: 1px solid #e0e0e0;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
 
   &:hover {
-    background-color: #8a2be2;
+    background-color: #7D26C9;
     color: white;
   }
 `;
 
-const TagGroup = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-  margin-bottom: 1rem;
-  width: 100%;
-`;
-
 const CategoryTags = () => {
+  const categories = [
+    'Perfumaria',
+    'Corpo e banho',
+    'Hidratante',
+    'Desodorante',
+    'Cabelos',
+    'Maquiagem',
+    'Rosto',
+    'Casa',
+    'Shampoo',
+    'Sabonete',
+    'Body splash',
+    'Óleo corporal',
+    'Corretivo',
+    'Proteção solar'
+  ];
+
   return (
-    <TagsContainer>
+    <Section>
       <Title>Lorem ipsum dolor sit amet consectetur</Title>
-      <TagsWrapper>
-        <TagGroup>
-          <Tag href="#perfumaria" highlighted>Perfumaria</Tag>
-          <Tag href="#corpo">Corpo e banho</Tag>
-          <Tag href="#hidratante">Hidratante</Tag>
-          <Tag href="#desodorante">Desodorante</Tag>
-          <Tag href="#cabelos">Cabelos</Tag>
-        </TagGroup>
-        <TagGroup>
-          <Tag href="#maquiagem">Maquiagem</Tag>
-          <Tag href="#rosto">Rosto</Tag>
-          <Tag href="#casa">Casa</Tag>
-          <Tag href="#infantil">Infantil</Tag>
-          <Tag href="#shampoo">Shampoo</Tag>
-          <Tag href="#sabonete">Sabonete</Tag>
-        </TagGroup>
-        <TagGroup>
-          <Tag href="#body-splash">Body splash</Tag>
-          <Tag href="#oleo-corporal">Óleo corporal</Tag>
-          <Tag href="#corretivo">Corretivo</Tag>
-          <Tag href="#protecao-solar">Proteção solar</Tag>
-        </TagGroup>
-      </TagsWrapper>
-    </TagsContainer>
+      <TagsContainer>
+        {categories.map((category, index) => (
+          <Tag key={index}>{category}</Tag>
+        ))}
+      </TagsContainer>
+    </Section>
   );
 };
 

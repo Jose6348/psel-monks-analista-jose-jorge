@@ -1,108 +1,96 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ProductSection = styled.section`
-  padding: 2rem;
-  background-color: white;
+const Section = styled.section`
+  padding: 2rem 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
 `;
 
-const ProductContainer = styled.div`
-  display: flex;
+const CardsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  overflow-x: auto;
-  padding: 1rem 0;
-  
-  &::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-  }
-  
-  &::-webkit-scrollbar-thumb {
-    background: #8a2be2;
-    border-radius: 4px;
-  }
-`;
-
-const ProductCard = styled.div`
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  min-width: 280px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
-`;
-
-const ProductImage = styled.div`
-  width: 100%;
-  height: 200px;
-  background-color: #f5f5f5;
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
-
-const ProductInfo = styled.div`
   padding: 1rem;
 
-  h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #333;
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  p {
-    margin: 0.5rem 0 0;
-    color: #666;
-    font-size: 0.9rem;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const Card = styled.div`
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(125, 38, 201, 0.05);
+  border: 1px solid rgba(125, 38, 201, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const CardTitle = styled.h3`
+  color: #333;
+  font-size: 1.25rem;
+  margin: 0;
+`;
+
+const CardDescription = styled.p`
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+`;
+
+const Button = styled.button`
+  background-color: #F0E6FA;
+  color: #7D26C9;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+
+  &:hover {
+    background-color: #7D26C9;
+    color: white;
   }
 `;
 
 const ProductCards = () => {
+  const products = [
+    {
+      title: 'Lorem ipsum dolor sit amet',
+      description: 'Lorem ipsum dolor sit amet consectetur. Semper orci adipiscing faucibus sit scelerisque quis commodo aenean viverra.',
+    },
+    {
+      title: 'Lorem ipsum dolor sit amet',
+      description: 'Lorem ipsum dolor sit amet consectetur. Semper orci adipiscing faucibus sit scelerisque quis commodo aenean viverra.',
+    },
+    {
+      title: 'Lorem ipsum dolor sit amet',
+      description: 'Lorem ipsum dolor sit amet consectetur. Semper orci adipiscing faucibus sit scelerisque quis commodo aenean viverra.',
+    },
+  ];
+
   return (
-    <ProductSection>
-      <ProductContainer>
-        <ProductCard>
-          <ProductImage>
-            <img src="https://via.placeholder.com/280x200" alt="Product" />
-          </ProductImage>
-          <ProductInfo>
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
-          </ProductInfo>
-        </ProductCard>
-
-        <ProductCard>
-          <ProductImage>
-            <img src="https://via.placeholder.com/280x200" alt="Product" />
-          </ProductImage>
-          <ProductInfo>
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
-          </ProductInfo>
-        </ProductCard>
-
-        <ProductCard>
-          <ProductImage>
-            <img src="https://via.placeholder.com/280x200" alt="Product" />
-          </ProductImage>
-          <ProductInfo>
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
-          </ProductInfo>
-        </ProductCard>
-      </ProductContainer>
-    </ProductSection>
+    <Section>
+      <CardsContainer>
+        {products.map((product, index) => (
+          <Card key={index}>
+            <CardTitle>{product.title}</CardTitle>
+            <CardDescription>{product.description}</CardDescription>
+            <Button>Lorem ipsum</Button>
+          </Card>
+        ))}
+      </CardsContainer>
+    </Section>
   );
 };
 

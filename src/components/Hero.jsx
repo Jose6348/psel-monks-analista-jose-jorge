@@ -1,85 +1,113 @@
 import React from 'react';
 import styled from 'styled-components';
+import scroll from '../assets/images/Scroll.png';
 
-const HeroContainer = styled.section`
-  background-color: #1a1a1a;
-  color: white;
-  padding: 4rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const HeroSection = styled.section`
+  background-color: #1A1A1A;
+  min-height: 90vh;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  border-radius: 0 0 20px 20px;
 `;
 
-const HeroContent = styled.div`
-  max-width: 600px;
-  z-index: 1;
-
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    color: #cccccc;
-    margin-bottom: 2rem;
-  }
+const Container = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  z-index: 2;
 `;
 
-const Button = styled.button`
-  background-color: #8a2be2;
+const Content = styled.div`
+  max-width: 650px;
   color: white;
-  border: none;
-  padding: 0.8rem 2rem;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 1rem;
-  
-  &:hover {
-    background-color: #7a1dd2;
-  }
+  margin-left: 4rem;
 `;
 
-const DecorativePattern = styled.div`
+const Title = styled.h1`
+  font-size: 4.5rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  font-weight: 600;
+`;
+
+const Description = styled.p`
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+  max-width: 540px;
+`;
+
+const ScrollContainer = styled.div`
   position: absolute;
-  right: -100px;
-  top: 50%;
-  transform: translateY(-50%) rotate(15deg);
-  width: 600px;
-  height: 600px;
-  opacity: 0.2;
-  z-index: 0;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+`;
 
-  svg {
-    width: 100%;
-    height: 100%;
+const ScrollText = styled.span`
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+`;
+
+const ScrollImage = styled.img`
+  width: 80px;
+  height: auto;
+  animation: bounce 2s infinite;
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 `;
 
-const MonksPattern = () => (
-  <svg width="100%" height="100%" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <pattern id="monksPattern" x="0" y="0" width="100" height="30" patternUnits="userSpaceOnUse">
-        <text x="0" y="20" fill="#8a2be2" fontFamily="Arial" fontSize="20">.monks</text>
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#monksPattern)" />
-  </svg>
-);
+const MonksPattern = styled.div`
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45%;
+  height: 100%;
+  background-image: url('/monks-pattern.png');
+  background-size: contain;
+  background-repeat: repeat-y;
+  opacity: 0.8;
+`;
 
 const Hero = () => {
   return (
-    <HeroContainer>
-      <HeroContent>
-        <h1>Lorem ipsum dolor sit amet consectetur</h1>
-        <p>Lorem ipsum dolor sit amet consectetur. Semper orci adipiscing faucibus sit scelerisque quis commodo viverra.</p>
-        <Button>Saiba +</Button>
-      </HeroContent>
-      <DecorativePattern>
-        <MonksPattern />
-      </DecorativePattern>
-    </HeroContainer>
+    <HeroSection>
+      <Container>
+        <Content>
+          <Title>Inovação digital que transforma negócios</Title>
+          <Description>
+            Somos especialistas em desenvolvimento de soluções tecnológicas que impulsionam o crescimento da sua empresa. Com expertise em tecnologias modernas e foco em resultados, transformamos ideias em realidade digital.
+          </Description>
+        </Content>
+      </Container>
+      <ScrollContainer>
+        <ScrollText>Descubra mais</ScrollText>
+        <ScrollImage src={scroll} alt="Scroll down" />
+      </ScrollContainer>
+      <MonksPattern />
+    </HeroSection>
   );
 };
 

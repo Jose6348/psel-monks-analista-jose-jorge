@@ -36,22 +36,22 @@ const Footer = () => {
   return (
     <FooterContainer>
       <SocialLinks>
-        <a href="#instagram" aria-label="Instagram">
-          <i className="fab fa-instagram"></i>
+        <a href="https://www.linkedin.com/company/monks-technology" aria-label="LinkedIn">
+          <i className="fab fa-linkedin"></i>
         </a>
-        <a href="#whatsapp" aria-label="WhatsApp">
-          <i className="fab fa-whatsapp"></i>
+        <a href="https://github.com/monks-tech" aria-label="GitHub">
+          <i className="fab fa-github"></i>
         </a>
-        <a href="#twitter" aria-label="Twitter">
+        <a href="https://twitter.com/monkstech" aria-label="Twitter">
           <i className="fab fa-twitter"></i>
         </a>
-        <a href="#facebook" aria-label="Facebook">
-          <i className="fab fa-facebook"></i>
+        <a href="https://instagram.com/monkstech" aria-label="Instagram">
+          <i className="fab fa-instagram"></i>
         </a>
       </SocialLinks>
-      <FooterText>Lorem ipsum dolor sit amet</FooterText>
-      <FooterText>Lorem ipsum</FooterText>
-      <FooterText>Lorem ipsum</FooterText>
+      <FooterText>© 2024 Monks Technology. Todos os direitos reservados.</FooterText>
+      <FooterText>Transformando ideias em soluções digitais desde 2014</FooterText>
+      <FooterText>contato@monkstechnology.com.br | +55 (11) 9999-9999</FooterText>
     </FooterContainer>
   );
 };

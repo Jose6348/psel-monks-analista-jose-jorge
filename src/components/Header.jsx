@@ -40,14 +40,14 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Logo>
-        <span className="monks">.monks</span>
+        <span className="monks">Monks</span> Technology
       </Logo>
       <Nav>
         <ul>
-          <li><a href="#category1">Categoria 1</a></li>
-          <li><a href="#category2">Categoria 2</a></li>
-          <li><a href="#category3">Categoria 3</a></li>
-          <li><a href="#category4">Categoria 4</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#tecnologias">Tecnologias</a></li>
+          <li><a href="#cases">Cases</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </Nav>
     </HeaderContainer>
