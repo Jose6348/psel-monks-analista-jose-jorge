@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import scroll from '../assets/images/Scroll.png';
+import monksHero from '../assets/images/Monks_hero.png';
 
 const HeroSection = styled.section`
-  background-color: #1A1A1A;
+  background-color: #2D2D2D;
   min-height: 90vh;
   position: relative;
   overflow: hidden;
@@ -18,7 +19,7 @@ const Container = styled.div`
   margin: 0 auto;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -27,7 +28,6 @@ const Container = styled.div`
 const Content = styled.div`
   max-width: 650px;
   color: white;
-  margin-left: 4rem;
 `;
 
 const Title = styled.h1`
@@ -78,17 +78,9 @@ const ScrollImage = styled.img`
   }
 `;
 
-const MonksPattern = styled.div`
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+const HeroImage = styled.img`
   width: 45%;
-  height: 100%;
-  background-image: url('/monks-pattern.png');
-  background-size: contain;
-  background-repeat: repeat-y;
-  opacity: 0.8;
+  height: 80vh;
 `;
 
 const Hero = () => {
@@ -96,17 +88,33 @@ const Hero = () => {
     <HeroSection>
       <Container>
         <Content>
-          <Title>Inovação digital que transforma negócios</Title>
+          <Title>Inovação que transforma negócios</Title>
           <Description>
-            Somos especialistas em desenvolvimento de soluções tecnológicas que impulsionam o crescimento da sua empresa. Com expertise em tecnologias modernas e foco em resultados, transformamos ideias em realidade digital.
-          </Description>
+            Nós
+            conectamos
+            os
+            pontos
+            para
+            impulsionar
+            a
+            relevância
+            cultural
+            em
+            todos
+            os
+            lugares
+            onde
+            as
+            pessoas
+            se
+            conectam.          </Description>
         </Content>
+        <HeroImage src={monksHero} alt="Monks" />
       </Container>
       <ScrollContainer>
         <ScrollText>Descubra mais</ScrollText>
         <ScrollImage src={scroll} alt="Scroll down" />
       </ScrollContainer>
-      <MonksPattern />
     </HeroSection>
   );
 };
