@@ -1,55 +1,82 @@
 import React from 'react';
 import styled from 'styled-components';
+import logo from '../assets/images/logo(1).png';
 
 const HeaderContainer = styled.header`
-  background-color: #1a1a1a;
-  padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: #2D2D2D;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 `;
 
-const Logo = styled.div`
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  .monks {
-    color: #8a2be2;
+const LogoSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+`;
+
+const Logo = styled.img`
+  height: 24px;
+  width: auto;
+`;
+
+const Categories = styled.div`
+  display: flex;
+  gap: 1.5rem;
+`;
+
+const CategoryLink = styled.a`
+  color: #EAE8E4;
+  text-decoration: none;
+  font-size: 20px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  font-weight: 400;
+  line-height: 100%;
+  gap: 8px;
+  font-family: 'HelveticaNeue';
+  &:hover {
+    opacity: 1;
   }
 `;
 
 const Nav = styled.nav`
-  ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-  }
+  margin-left: auto;
+  display: flex;
+  gap: 2rem;
+`;
 
-  li a {
-    color: white;
-    text-decoration: none;
-    &:hover {
-      color: #8a2be2;
-    }
+const NavLink = styled.a`
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  font-weight: 300;
+
+  &:hover {
+    opacity: 1;
   }
 `;
 
 const Header = () => {
   return (
     <HeaderContainer>
-      <Logo>
-        <span className="monks">Monks</span> Technology
-      </Logo>
-      <Nav>
-        <ul>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#tecnologias">Tecnologias</a></li>
-          <li><a href="#cases">Cases</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </Nav>
+      <LogoSection>
+        <Logo src={logo} alt="Monks" />
+        <Categories>
+          <CategoryLink href="#">Categoria 1</CategoryLink>
+          <CategoryLink href="#">Categoria 2</CategoryLink>
+          <CategoryLink href="#">Categoria 3</CategoryLink>
+          <CategoryLink href="#">Categoria 4</CategoryLink>
+        </Categories>
+      </LogoSection>
+     
     </HeaderContainer>
   );
 };
