@@ -47,11 +47,10 @@ const CardDescription = styled.p`
 `;
 
 const Button = styled.button`
-  background-color: #F0E6FA;
-  color: #7D26C9;
-  border: none;
+  background-color: #DFBBFE;
+  color:rgb(0, 0, 0);
+  border: 1px solid #7D26C9;
   padding: 0.5rem 1.5rem;
-  border-radius: 50px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
