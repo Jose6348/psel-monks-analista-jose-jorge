@@ -76,7 +76,9 @@ const Header = () => {
           <CategoryLink href="#">Categoria 4</CategoryLink>
         </Categories>
       </LogoSection>
-     
+      <Nav>
+        <NavLink href="/formulario-manager">Formulário Manager</NavLink>
+      </Nav>
     </HeaderContainer>
   );
 };

@@ -140,10 +140,10 @@ const SuccessMessage = styled.div`
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    categoria: '',
-    categoria2: '',
-    categoria3: '',
-    categoria4: '',
+    nome: '',
+    email: '',
+    solucao: '',
+    dimensao: '',
     captcha: '',
   });
 
@@ -156,7 +156,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Validar captcha
     if (Number(formData.captcha) !== captchaNum1 + captchaNum2) {
       setErro('Verificação de segurança incorreta');
@@ -174,10 +174,10 @@ const ContactForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          nome: formData.categoria,  // usando categoria como nome
-          email: formData.categoria2, // usando categoria2 como email
-          categoria3: formData.categoria3,
-          categoria4: formData.categoria4,
+          nome: formData.nome,
+          email: formData.email,
+          solucao: formData.solucao,
+          dimensao: formData.dimensao,
         }),
       });
 
@@ -187,10 +187,10 @@ const ContactForm = () => {
         setResposta(data);
         // Limpar formulário após sucesso
         setFormData({
-          categoria: '',
-          categoria2: '',
-          categoria3: '',
-          categoria4: '',
+          nome: '',
+          email: '',
+          solucao: '',
+          dimensao: '',
           captcha: '',
         });
       } else {
@@ -221,45 +221,47 @@ const ContactForm = () => {
         
         <Form onSubmit={handleSubmit}>
           <FormGroup>
-            <Label htmlFor="categoria">Como podemos te chamar?*</Label>
+            <Label htmlFor="nome">Como podemos te chamar?*</Label>
             <Input
               type="text"
-              id="categoria"
-              value={formData.categoria}
-              onChange={(e) => setFormData({...formData, categoria: e.target.value})}
+              id="nome"
+              value={formData.nome}
+              onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
               placeholder="Seu nome completo"
               required
             />
           </FormGroup>
 
           <FormGroup>
-            <Label htmlFor="categoria2">Qual seu melhor e-mail?*</Label>
+            <Label htmlFor="email">Qual seu melhor e-mail?*</Label>
             <Input
               type="email"
-              id="categoria2"
-              value={formData.categoria2}
-              onChange={(e) => setFormData({...formData, categoria2: e.target.value})}
+              id="email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="email@suaempresa.com"
               required
             />
           </FormGroup>
 
           <FormGroup>
-            <Label>Qual solução você procura?</Label>
+            <Label htmlFor="solucao">Qual solução você procura?</Label>
             <Input
               type="text"
-              value={formData.categoria3}
-              onChange={(e) => setFormData({...formData, categoria3: e.target.value})}
+              id="solucao"
+              value={formData.solucao}
+              onChange={(e) => setFormData({ ...formData, solucao: e.target.value })}
               placeholder="Ex: Site, Aplicativo, Sistema Web, E-commerce"
             />
           </FormGroup>
 
           <FormGroup>
-            <Label>Qual a dimensão do seu projeto?</Label>
+            <Label htmlFor="dimensao">Qual a dimensão da sua empresa?</Label>
             <Input
               type="text"
-              value={formData.categoria4}
-              onChange={(e) => setFormData({...formData, categoria4: e.target.value})}
+              id="dimensao"
+              value={formData.dimensao}
+              onChange={(e) => setFormData({ ...formData, dimensao: e.target.value })}
               placeholder="Ex: Startup, Média Empresa, Grande Porte"
             />
           </FormGroup>
@@ -273,7 +275,7 @@ const ContactForm = () => {
             <Input
               type="text"
               value={formData.captcha}
-              onChange={(e) => setFormData({...formData, captcha: e.target.value})}
+              onChange={(e) => setFormData({ ...formData, captcha: e.target.value })}
               placeholder="Resultado da soma"
               style={{ width: '120px' }}
               required
@@ -292,9 +294,15 @@ const ContactForm = () => {
             </SuccessMessage>
           )}
 
-          <SubmitButton 
-            type="submit" 
-            disabled={enviando || !formData.categoria || !formData.categoria2 || !formData.captcha || Number(formData.captcha) !== captchaNum1 + captchaNum2}
+          <SubmitButton
+            type="submit"
+            disabled={
+              enviando ||
+              !formData.nome ||
+              !formData.email ||
+              !formData.captcha ||
+              Number(formData.captcha) !== captchaNum1 + captchaNum2
+            }
           >
             {enviando ? 'Enviando sua mensagem...' : 'Começar Meu Projeto'}
           </SubmitButton>
@@ -304,4 +312,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm; 
+export default ContactForm;
