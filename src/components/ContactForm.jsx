@@ -512,12 +512,12 @@ const ContactForm = () => {
   const handleSearch = async () => {
     try {
       let url = 'http://psel-monks-analista-jose-jorge.local/wp-json/custom/v1/formularios';
-      
+
       // Se tiver ID, busca diretamente pelo ID
       if (searchParams.id) {
         url = `http://psel-monks-analista-jose-jorge.local/wp-json/custom/v1/formularios/${searchParams.id}`;
         const response = await fetch(url);
-        
+
         if (!response.ok) {
           if (response.status === 404) {
             setErro('Formulário não encontrado');
@@ -526,26 +526,26 @@ const ContactForm = () => {
           }
           throw new Error('Erro na busca');
         }
-        
+
         const data = await response.json();
         // Transforma a resposta única em array para manter consistência
         setFormularios([data]);
         setErro(null);
         return;
       }
-      
+
       // Se não tiver ID, mas tiver dimensão, usa a busca por dimensão
       if (searchParams.dimensao) {
         const query = new URLSearchParams({ dimensao: searchParams.dimensao }).toString();
         url += '/search?' + query;
       }
-      
+
       const response = await fetch(url);
-      
+
       if (!response.ok) {
         throw new Error('Erro na busca');
       }
-      
+
       const data = await response.json();
       setFormularios(data);
       setErro(null);
@@ -579,19 +579,19 @@ const ContactForm = () => {
   const handleUpdate = async () => {
     try {
       console.log('Iniciando atualização para o formulário:', editingForm.id);
-      
+
       // Buscando o formulário original para obter o nome real
       const responseOriginal = await fetch(
         `http://psel-monks-analista-jose-jorge.local/wp-json/custom/v1/formularios/${editingForm.id}`
       );
-      
+
       if (!responseOriginal.ok) {
         throw new Error('Erro ao buscar dados originais do formulário');
       }
-      
+
       const formOriginal = await responseOriginal.json();
       console.log('Dados originais do formulário:', formOriginal);
-      
+
       // Preparando os dados no formato esperado pelo backend
       const dadosAtualizacao = {
         nome: formOriginal.nome || formOriginal.title || formOriginal.post_title || editingForm.nome,
@@ -599,7 +599,7 @@ const ContactForm = () => {
         solucao: editingForm.solucao,
         dimensao: editingForm.dimensao
       };
-      
+
       console.log('Dados a serem enviados:', dadosAtualizacao);
 
       const response = await fetch(
@@ -623,7 +623,7 @@ const ContactForm = () => {
 
       setResposta({ message: 'Formulário atualizado com sucesso!' });
       setTimeout(() => setResposta(null), 3000);
-      
+
       await fetchFormularios();
       setEditingForm(null);
       setErro('');
@@ -659,14 +659,27 @@ const ContactForm = () => {
       <FormContainer>
         <Title>Vamos criar algo incrível juntos?</Title>
         <Description>
-          Somos especialistas em desenvolvimento de software e transformação digital. 
-          Com mais de 10 anos de experiência, ajudamos empresas a crescerem através da tecnologia.
-          Conte-nos sobre seu projeto e descubra como podemos ajudar sua empresa a se destacar no mundo digital.
+          Do
+          digital
+          ao
+          físico,
+          impulsionamos
+          o
+          crescimento
+          das
+          marcas
+          com
+          soluções
+          completas
+          de
+          marketing
+          e
+          tecnologia.
         </Description>
         <SubDescription>
           *Preencha os campos abaixo e nossa equipe entrará em contato em até 24 horas
         </SubDescription>
-        
+
         <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Label htmlFor="nome">Como podemos te chamar?*</Label>
@@ -736,7 +749,7 @@ const ContactForm = () => {
             <SuccessMessage>
               <h3>Ótimo! Recebemos sua mensagem.</h3>
               <p>
-                Estamos ansiosos para conhecer mais sobre seu projeto! 
+                Estamos ansiosos para conhecer mais sobre seu projeto!
                 Um de nossos consultores entrará em contato para uma conversa personalizada.
               </p>
               {resposta.id && <p>Seu número de protocolo: #{resposta.id}</p>}
@@ -774,7 +787,7 @@ const ContactForm = () => {
                   Fechar
                 </ActionButton>
               </ModalHeader>
-              
+
               <SearchContainer>
                 <SearchGroup>
                   <SearchLabel>Buscar por ID</SearchLabel>
