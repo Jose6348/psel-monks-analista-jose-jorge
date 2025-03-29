@@ -5,8 +5,8 @@ import city6 from '../assets/images/city6.png';
 import city7 from '../assets/images/city7.png';
 
 const ShowcaseSection = styled.section`
-  padding: 4rem 2rem;
-  background-color: #ffffff;
+  padding: 1rem 2rem;
+  background-color: #eae8e4;
 `;
 
 const SectionTitle = styled.h2`

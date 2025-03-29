@@ -1,23 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
+import city1 from '../assets/images/city1.png';
+import city2 from '../assets/images/city2.png';
+import city3 from '../assets/images/city3.png';
+import city4 from '../assets/images/city4.png';
 
 const GridSection = styled.section`
   padding: 4rem 2rem;
-  background-color: #f5f5f5;
+  background-color: #eae8e4;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2.5rem;
-  color: #333;
+  font-size: 40px;
+  color: #2D2D2D;
   margin-bottom: 1rem;
   text-align: left;
 `;
 
 const SectionDescription = styled.p`
-  color: #666;
-  margin-bottom: 2rem;
-  text-align: left;
-  font-size: 1.1rem;
+  font-family: HelveticaNeue;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 2%;
+  margin-bottom: 40px;
+  color: #2D2D2D;
+
 `;
 
 const Grid = styled.div`
@@ -74,7 +82,7 @@ const LargeImageGrid = styled.div`
 
   img {
     width: 100%;
-    height: 400px;
+    height: auto;
     object-fit: cover;
     border-radius: 8px;
   }
@@ -83,10 +91,10 @@ const LargeImageGrid = styled.div`
 const ImageGrid = () => {
   // URLs temporárias para as imagens das cidades
   const cityImages = {
-    city1: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=500&q=80",
-    city2: "https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=500&q=80",
-    city3: "https://images.unsplash.com/photo-1465447142348-e9952c393450?w=500&q=80",
-    city4: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=500&q=80"
+    city1: city1,
+    city2: city2,
+    city3: city3,
+    city4: city4
   };
 
   return (

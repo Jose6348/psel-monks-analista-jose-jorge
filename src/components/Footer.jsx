@@ -6,7 +6,7 @@ import TwitterIcon from '../assets/Icons/Twitter.png';
 import FacebookIcon from '../assets/Icons/Facebook.png';
 
 const FooterContainer = styled.footer`
-  background-color: var(--background-dark);
+  background-color: #1C1C1C;
   color: white;
   padding: 2rem;
   text-align: center;
@@ -15,25 +15,34 @@ const FooterContainer = styled.footer`
 const SocialLinks = styled.div`
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
 
   a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     text-decoration: none;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
+    transition: transform 0.3s ease;
 
     &:hover {
-      color: var(--primary-color);
+      transform: scale(1.1);
+    }
+
+    img {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1);
     }
   }
 `;
 
 const MainText = styled.div`
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 1.5rem 0;
+  font-weight: 500;
 `;
 
 const FooterLinksContainer = styled.div`
@@ -41,16 +50,17 @@ const FooterLinksContainer = styled.div`
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
+  margin-top: 1rem;
 `;
 
 const FooterLink = styled.a`
-  color: #666;
+  color: #9e9e9e;
   font-size: 0.9rem;
   text-decoration: none;
   transition: color 0.3s ease;
 
   &:hover {
-    color: var(--primary-color);
+    color: white;
   }
 `;
 

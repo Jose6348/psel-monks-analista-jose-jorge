@@ -3,12 +3,16 @@ import styled from 'styled-components';
 import appStore from '../assets/images/ApleStore.png';
 import playStore from '../assets/images/PlayStore.png';
 
+
 const Section = styled.section`
   background-color: #3C0C60;
-  padding: 4rem 2rem;
-  margin: 2rem 1rem;
-  width: calc(100% - 2rem);
-  border-radius: 12px;
+  width: 312;
+  height: 394.0097351074219;
+  gap: 40px;
+  border-radius: 24px;
+  padding: 24px;
+  margin: 32px 24px 24px 32px;
+
 `;
 
 const Container = styled.div`

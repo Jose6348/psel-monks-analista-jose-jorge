@@ -18,7 +18,18 @@ const CardsContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+    width: 312;
+    height: 246;
+    gap: 24px;
+    border-radius: 16px;
+    padding: 24px;
+    border-width: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 24px 24px 16px;
+
   }
 `;
 
